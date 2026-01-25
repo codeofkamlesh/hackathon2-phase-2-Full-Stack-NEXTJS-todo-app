@@ -31,13 +31,6 @@ export const useTaskFilters = (tasks: Task[]): UseTaskFiltersResult => {
       );
     }
 
-    if (filters.due_after) {
-      const afterDate = new Date(filters.due_after);
-      result = result.filter(task =>
-        task.due_date && new Date(task.due_date) >= afterDate
-      );
-    }
-
     if (filters.completed !== undefined) {
       result = result.filter(task => task.completed === filters.completed);
     }
